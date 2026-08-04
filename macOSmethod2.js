@@ -51,8 +51,43 @@
         });
         
         observer.observe(document.body, { childList: true, subtree: true });
+
+        // Remove thumbnails
+        const thumbStyle = document.createElement('style');
+        thumbStyle.textContent = `
+            ytd-thumbnail img, ytd-rich-thumbnail img,
+            ytd-moving-thumbnail-renderer, yt-image img
+            { display: none !important; }
+        `;
+        document.head.appendChild(thumbStyle);
+
+        // Block live sound previews on hover
+        function mutePreviewVideo(video) {
+            video.muted = true;
+            video.volume = 0;
+            video.addEventListener('volumechange', () => {
+                if (!video.muted) {
+                    video.muted = true;
+                    video.volume = 0;
+                }
+            });
+        }
+
+        const previewObserver = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (node.nodeType !== 1) continue;
+                    if (node.tagName === 'VIDEO' && node.closest('ytd-video-preview, ytd-thumbnail-overlay-inline-unplayable-renderer')) {
+                        mutePreviewVideo(node);
+                    }
+                    node.querySelectorAll('ytd-video-preview video, ytd-thumbnail-overlay-inline-unplayable-renderer video').forEach(mutePreviewVideo);
+                }
+            }
+        });
+
+        previewObserver.observe(document.body, { childList: true, subtree: true });
     }
-    
+
     // For Instagram
     if(window.location.hostname.includes('instagram.com')) {
         const style = document.createElement('style');

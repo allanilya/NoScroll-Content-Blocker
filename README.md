@@ -27,7 +27,7 @@ NoScroll helps you reclaim your attention by removing distracting short-form vid
    ```
    /* In your content blocker app */
    URL pattern: *youtube.com*
-   CSS Selector: ytd-rich-shelf-renderer[is-shorts],ytd-reel-shelf-renderer,ytd-reel-item-renderer,ytd-shorts,ytd-shorts-carousel-renderer,ytd-shorts-video-renderer,ytd-rich-grid-slim-renderer[is-shorts],ytd-rich-section-renderer[is-shorts],ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[title="Shorts"],a[title="Shorts"],a[href="/shorts"],[href*="/shorts/"],[title*="shorts"],#shorts-inner-container,#shorts-container,.pivot-shorts,.pivot-bar-item-renderer[tab-identifier="FEshorts"],button[aria-label*="Shorts"],ytm-pivot-bar-item-renderer[tab-identifier="FEshorts"],.ytm-shorts-shelf,[data-content-type="shorts"],[tab-title="Shorts"]
+   CSS Selector: ytd-rich-shelf-renderer[is-shorts],ytd-reel-shelf-renderer,ytd-reel-item-renderer,ytd-shorts,ytd-shorts-carousel-renderer,ytd-shorts-video-renderer,ytd-rich-grid-slim-renderer[is-shorts],ytd-rich-section-renderer[is-shorts],ytd-guide-entry-renderer[title="Shorts"],ytd-mini-guide-entry-renderer[title="Shorts"],a[title="Shorts"],a[href="/shorts"],[href*="/shorts/"],[title*="shorts"],#shorts-inner-container,#shorts-container,.pivot-shorts,.pivot-bar-item-renderer[tab-identifier="FEshorts"],button[aria-label*="Shorts"],ytm-pivot-bar-item-renderer[tab-identifier="FEshorts"],.ytm-shorts-shelf,[data-content-type="shorts"],[tab-title="Shorts"],ytd-video-preview,ytd-thumbnail-overlay-inline-unplayable-renderer
 
    ```
 
